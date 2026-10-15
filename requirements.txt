@@ -1,0 +1,4 @@
+Acceptance test from customer requirements:
+    1. Given a customer requests for 3 side lengths with 2 lengths being equal, show a message stating it is an isosceles triangle, then enforce that the lengths provided can form a valid triangle.
+    2. Given a customer requests for 3 side lengths with 1 length being a negative number, show a message stating that the lengths cannot be negative and prompt for valid lengths instead of crashing.
+    3. Given a customer requests for 3 side lengths with 1 length establishing a right-angle triangle, show a message stating it is a right-angled triangle, then enforce that the lengths provided can form a valid triangle but need reinforced corners.
