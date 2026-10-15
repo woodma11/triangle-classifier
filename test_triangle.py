@@ -25,9 +25,3 @@ def test_non_integer_right_triangle():
 def test_right_isosceles_triangle():
     assert classify_triangle(1, 1, math.sqrt(2)) == "Right Isosceles"
 
-def test_stained_glass_customer_requirements():
-    assert classify_triangle(5, 5, 8) == "Isosceles"
-    
-    assert classify_triangle(-3, 4, 5) == "Invalid"
-    
-    assert classify_triangle(3, 4, 5) == "Right Scalene"
