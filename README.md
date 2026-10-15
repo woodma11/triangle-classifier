@@ -1,6 +1,6 @@
 # Triangle Classifier
 
-# A simple Python program that classifies triangles based on the lengths of their sides. The program can identify whether a triangle is equilateral, isosceles, scalene, or right-angled.
+## A simple Python program that classifies triangles based on the lengths of their sides. The program can identify whether a triangle is equilateral, isosceles, scalene, or right-angled.
 
 # How to run the tests
 
@@ -11,15 +11,15 @@ pip install -r requirements.txt
 pytest -v
 
 # Equivalence Classes and Boundaries
-   # - Negative side lengths: Invalid triangle
-   # - Failed triangle inequality: Invalid triangle
-   # - Degenerate triangle (sum of two sides equals the third): Invalid triangle
-   # - Equilateral triangle (all sides equal): Valid triangle
-   # - Isosceles triangle (two sides equal): Valid triangle
-   # - Scalene triangle (all sides different): Valid triangle
-   # - Right-angled triangle (satisfies Pythagorean theorem): Valid triangle
-   # -Equilateral triangle cannot be right-angled: Invalid triangle
-   # - Key boundaries: side lengths of 0, negative values, and values that violate the triangle inequality(such as 1, 2, 3).
+   ## - Negative side lengths: Invalid triangle
+   ## - Failed triangle inequality: Invalid triangle
+   ## - Degenerate triangle (sum of two sides equals the third): Invalid triangle
+   ## - Equilateral triangle (all sides equal): Valid triangle
+   ## - Isosceles triangle (two sides equal): Valid triangle
+   ## - Scalene triangle (all sides different): Valid triangle
+   ## - Right-angled triangle (satisfies Pythagorean theorem): Valid triangle
+   ## -Equilateral triangle cannot be right-angled: Invalid triangle
+   ## - Key boundaries: side lengths of 0, negative values, and values that violate the triangle inequality(such as 1, 2, 3).
 
 # Copilot Review Log
     ## - test_equilateral_triangle: accepted copilot suggestion, it correctly expected "Equilateral" for 3 equal side lengths.
@@ -39,4 +39,4 @@ pytest -v
 
     ## - Given a customer requests for 3 side lengths with 1 length establishing a right-angle triangle, show a message stating it is a right-angled triangle, then enforce that the lengths provided can form a valid triangle but need reinforced corners.
 
-# AI Disclousure: This code was generated with the assistance of AI, specifically GitHub Copilot and ChatGPT. The AI provided suggestions and code snippets, which were reviewed and modified by the developer to ensure correctness and adherence to the project requirements.
+# AI Disclousure: ## This code was generated with the assistance of AI, specifically GitHub Copilot and ChatGPT. The AI provided suggestions and code snippets, which were reviewed and modified by the developer to ensure correctness and adherence to the project requirements.
