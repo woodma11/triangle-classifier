@@ -1,42 +1,50 @@
 # Triangle Classifier
 
-## A simple Python program that classifies triangles based on the lengths of their sides. The program can identify whether a triangle is equilateral, isosceles, scalene, or right-angled.
+A simple Python program that classifies triangles from their side lengths. It identifies valid equilateral, isosceles, scalene, and right-angled triangles.
 
-# How to run the tests
+## Run the tests
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 pytest -v
+```
 
-# Equivalence Classes and Boundaries
-   ## - Negative side lengths: Invalid triangle
-   ## - Failed triangle inequality: Invalid triangle
-   ## - Degenerate triangle (sum of two sides equals the third): Invalid triangle
-   ## - Equilateral triangle (all sides equal): Valid triangle
-   ## - Isosceles triangle (two sides equal): Valid triangle
-   ## - Scalene triangle (all sides different): Valid triangle
-   ## - Right-angled triangle (satisfies Pythagorean theorem): Valid triangle
-   ## -Equilateral triangle cannot be right-angled: Invalid triangle
-   ## - Key boundaries: side lengths of 0, negative values, and values that violate the triangle inequality(such as 1, 2, 3).
+## Equivalence classes and boundaries
 
-# Copilot Review Log
-    ## - test_equilateral_triangle: accepted copilot suggestion, it correctly expected "Equilateral" for 3 equal side lengths.
+| Class or boundary | Expected result |
+| --- | --- |
+| Negative side length | Invalid triangle |
+| Failed triangle inequality | Invalid triangle |
+| Degenerate triangle: the sum of two sides equals the third | Invalid triangle |
+| Equilateral: all sides equal | Valid equilateral triangle |
+| Isosceles: exactly two sides equal | Valid isosceles triangle |
+| Scalene: all sides different | Valid scalene triangle |
+| Right-angled: satisfies the Pythagorean theorem | Valid triangle prefixed with `Right` |
 
-    ## - classify_triangle: rejected copilot suggestion, the draft tried to return "Right {base_classification}" before a real classification variable existed, which would have caused a runtime error. I corrected this by ensuring the base classification was determined first.
+The key boundaries are side lengths of zero, negative values, and equality in the triangle inequality—for example, `1, 2, 3`.
 
-    ## - test_degenerate_triangle_is_invalid: accepted copilot suggestion, it correctly expected "Invalid" for a degenerate triangle.
+### Why an equilateral triangle cannot be right-angled
 
-    ## - test_right_isosceles_triangle: edited copilot suggestion, it incorrectly expected "Isosceles" for a right isosceles triangle, but I corrected it to expect "Right Isosceles".
+An equilateral triangle has three 60-degree angles. A right triangle must have one 90-degree angle, so a triangle cannot be both equilateral and right-angled.
 
-    ## - test_non_integer_right_triangle: accepted copilot suggestion, it correctly expected "Right Scalene" for a right triangle with non-integer sides.
+## Copilot Review Log
 
-# Acceptance Criteria:
-    ## - Given a customer requests for 3 side lengths with 2 lengths being equal, show a message stating it is an isosceles triangle, then enforce that the lengths provided can form a valid triangle.
+| Test or suggestion | Copilot-suggested? | Decision | Review result |
+| --- | --- | --- | --- |
+| `test_equilateral_triangle` | Yes | Accepted | It correctly expected `"Equilateral"` for three equal side lengths. |
+| `classify_triangle` right-triangle draft | Yes | Rejected | The draft tried to return `"Right {base_classification}"` before a classification variable existed, which would have caused a runtime error. The base classification is determined first. |
+| `test_degenerate_triangle_is_invalid` | Yes | Accepted | It correctly expected `"Invalid"` for a degenerate triangle. |
+| `test_right_isosceles_triangle` | Yes | Edited | It incorrectly expected `"Isosceles"`; the expected result was changed to `"Right Isosceles"`. |
+| `test_non_integer_right_triangle` | Yes | Accepted | It correctly expected `"Right Scalene"` for a right triangle with non-integer sides. |
 
-    ## - Given a customer requests for 3 side lengths with 1 length being a negative number, show a message stating that the lengths cannot be negative and prompt for valid lengths instead of crashing.
+## Acceptance criteria
 
-    ## - Given a customer requests for 3 side lengths with 1 length establishing a right-angle triangle, show a message stating it is a right-angled triangle, then enforce that the lengths provided can form a valid triangle but need reinforced corners.
+1. Given three valid side lengths with exactly two equal values, the classifier returns `"Isosceles"`.
+2. Given any side length less than or equal to zero, the classifier returns `"Invalid"` without crashing.
+3. Given valid side lengths that form a right triangle, the classifier returns a result beginning with `"Right "` so reinforced corners can be identified.
 
-# AI Disclousure: ## This code was generated with the assistance of AI, specifically GitHub Copilot and ChatGPT. The AI provided suggestions and code snippets, which were reviewed and modified by the developer to ensure correctness and adherence to the project requirements.
+## AI-use disclosure
+
+This code was generated with assistance from GitHub Copilot and ChatGPT. The tools provided suggestions and code snippets, which were reviewed and modified by the developer for correctness and adherence to the project requirements.
